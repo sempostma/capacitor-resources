@@ -209,7 +209,7 @@ function generateForConfig(imageObj, settings, config) {
 
     const outputFilePath = path.join(platformPath, definition.name)
 
-    image.crop(x, y, width, height).write(outputFilePath, err => {
+    image.cover(x, y, width, height).write(outputFilePath, err => {
       if (err) defer.reject(err)
       //display.info('Generated splash file for ' + outputFilePath);
       defer.resolve()
