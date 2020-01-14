@@ -77,8 +77,12 @@ const copyIOSSplash = async () => {
 module.exports = new Promise(async (resolve, reject) => {
   try {
     if (fs.existsSync(iosPath)) {
-      await copyIOSIcons()
-      await copyIOSSplash()
+      if (fs.existsSync(iosIconsOrigin)) {
+        await copyIOSIcons()
+      }
+      if (fs.existsSync(iosSplashOrigin)) {
+        await copyIOSSplash()
+      }
       resolve()
     } else {
       resolve()
