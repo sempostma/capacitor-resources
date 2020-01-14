@@ -202,14 +202,12 @@ function generateForConfig(imageObj, settings, config) {
     const defer = Q.defer()
     const image = imageObj.splash.clone()
 
-    const x = (image.bitmap.width - definition.width) / 2
-    const y = (image.bitmap.height - definition.height) / 2
     const width = definition.width
     const height = definition.height
 
     const outputFilePath = path.join(platformPath, definition.name)
 
-    image.cover(x, y, width, height).write(outputFilePath, err => {
+    image.cover(width, height).write(outputFilePath, err => {
       if (err) defer.reject(err)
       //display.info('Generated splash file for ' + outputFilePath);
       defer.resolve()
